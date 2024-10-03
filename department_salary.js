@@ -70,11 +70,22 @@ function calculateDepartmentSalary(department) {
     return totalSalary;
 }
 
-// calculate salary for individual employee and subs
+// calc salary for individual employee and subs
 function calculateEmployeeSalary(employee) {
     let salary = employee.salary;
     employee.subordinates.forEach(subordinate => {
         salary += calculateEmployeeSalary(subordinate);
     });
     return salary;
+}
+
+// calc total salary
+function calculateCompanySalary(company) {
+    let totalCompanySalary = 0;
+
+    company.departments.forEach(department => {
+        totalCompanySalary += calculateDepartmentSalary(department);
+    });
+
+    return totalCompanySalary;
 }
