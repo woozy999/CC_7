@@ -54,6 +54,8 @@ const company = {
     ]
 };
 
+//part 2
+
 // recursive function for salary
 function calculateDepartmentSalary(department) {
     let totalSalary = 0;
@@ -79,6 +81,8 @@ function calculateEmployeeSalary(employee) {
     return salary;
 }
 
+//part 3
+
 // calc total salary
 function calculateCompanySalary(company) {
     let totalCompanySalary = 0;
@@ -89,3 +93,9 @@ function calculateCompanySalary(company) {
 
     return totalCompanySalary;
 }
+
+//part 4
+
+console.log("Total salary for Engineering department: $" + calculateDepartmentSalary(company.departments[0]));
+console.log("Total salary for Sales department: $" + calculateDepartmentSalary(company.departments[1]));
+console.log("Total salary for the entire company: $" + calculateCompanySalary(company));
