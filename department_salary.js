@@ -54,3 +54,27 @@ const company = {
     ]
 };
 
+// recursive function for salary
+function calculateDepartmentSalary(department) {
+    let totalSalary = 0;
+
+    department.employees.forEach(employee => {
+        totalSalary += employee.salary;
+        if (employee.subordinates.length > 0) {
+            employee.subordinates.forEach(subordinate => {
+                totalSalary += calculateEmployeeSalary(subordinate);
+            });
+        }
+    });
+
+    return totalSalary;
+}
+
+// calculate salary for individual employee and subs
+function calculateEmployeeSalary(employee) {
+    let salary = employee.salary;
+    employee.subordinates.forEach(subordinate => {
+        salary += calculateEmployeeSalary(subordinate);
+    });
+    return salary;
+}
